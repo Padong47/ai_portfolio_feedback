@@ -176,7 +176,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow"><span>●</span> AI APPLICATION PORTFOLIO · 2026</p>
           <h1>AI를 기능이 아닌,<br /><em>사용자가 체감하는 흐름</em>으로.</h1>
-          <p className="hero-description">LLM, Multi-Agent, RAG, Voice AI를 문제에 맞게 조합하고 검증 가능한 서비스로 연결하는 AI 빌더 이승민입니다.</p>
+          <p className="hero-description">LLM, Multi-Agent, RAG, Voice AI를 문제에 맞게 조합하고 검증 가능한 서비스로 연결하는 AI 빌더 류승민입니다.</p>
           <div className="hero-actions"><a className="button-primary" href="#projects">AI 프로젝트 보기 <ArrowDownRight size={18} /></a><a className="mail-link" href="mailto:rsb3748419@gmail.com">rsb3748419@gmail.com</a></div>
         </div>
         <aside className="hero-lab" aria-label="AI 활용 흐름">
