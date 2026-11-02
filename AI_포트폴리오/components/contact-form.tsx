@@ -35,7 +35,7 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={onSubmit}>
-      <div className="form-heading"><span>PROJECT INQUIRY</span><p>필수 항목 *</p></div>
+      <div className="form-heading"><span>문의 보내기</span><p>필수 항목 *</p></div>
       <div className="form-row"><label>이름 *<input name="name" required maxLength={60} placeholder="이름을 입력해 주세요" /></label><label>소속<input name="affiliation" maxLength={100} placeholder="회사 또는 팀 (선택)" /></label></div>
       <label>이메일 *<input name="email" type="email" required maxLength={160} placeholder="reply@example.com" /></label>
       <label>문의 내용 *<textarea name="message" required minLength={10} maxLength={2000} rows={5} placeholder="포지션이나 프로젝트에 대해 알려주세요." /></label>

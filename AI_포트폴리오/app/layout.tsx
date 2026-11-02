@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "RSB · AI Builder Portfolio",
+  title: "류승민 · AI 엔지니어 포트폴리오",
   description:
-    "LLM, Multi-Agent, RAG, Voice AI를 실제 사용자 경험으로 연결한 AI 활용 중심 포트폴리오",
+    "LLM, RAG, 음성 AI로 고객 지원, 문서 검색, 키오스크 서비스를 만든 류승민의 포트폴리오",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
