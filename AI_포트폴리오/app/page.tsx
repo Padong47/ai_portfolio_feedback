@@ -58,10 +58,10 @@ const featuredProjects = [
     eyebrow: "MULTI-AGENT SERVICE",
     statement: "고객의 도움 요청과 운영자의 처리 상태를\n한곳에서 관리합니다.",
     summary: "방탈출 고객이 도움을 요청하면 운영자가 상태를 확인하고 처리 결과를 기록할 수 있습니다.",
-    aiPoint: "OpenRouter 기반 LLM, Multi-Agent, MCP를 사용해 고객 요청을 처리하는 기능을 만들었습니다.",
-    humanPoint: "고객용 화면과 운영자용 화면을 나눴습니다. 요청 상태와 운영 이력을 관리하는 방식을 정했습니다.",
+    aiPoint: "AI로 Docker·MCP·Backend·DB·LLM 연동 오류를 재현하고 원인을 분석했습니다. 실사용 시나리오 테스트, PR·코드 검토, 성능 비교와 인계 보고서 작성에 활용했습니다.",
+    humanPoint: "Docker·MCP 서버를 연결하고 Backend·DB·LLM 도구 호출이 정상 동작하는지 검증했습니다. 서비스 간 입력 계약과 실행 오류를 해결하고, 고객·운영자 화면의 응답 속도와 오류를 점검했습니다.",
     process: ["요청 입력", "문맥 파악", "에이전트 협업", "운영자 처리", "상태 피드백"],
-    role: "개인 프로젝트 · 고객/운영자 화면, 요청 상태, 운영 이력 구현",
+    role: "팀 프로젝트 · Docker/MCP/Backend/DB/LLM 연동 검증, 실사용 테스트, 품질 점검",
     image: "/projects/cipher-home.png",
     imageAlt: "CIPHER 고객 화면과 운영자 화면을 선택하는 메인 페이지",
     url: "https://cipher-kg8hyoy94-rsb3748419-7538.vercel.app/",
@@ -75,10 +75,10 @@ const featuredProjects = [
     eyebrow: "VOICE AI KIOSK",
     statement: "큰 버튼과 음성 안내로\n메뉴 선택부터 결제까지 돕습니다.",
     summary: "음성 안내와 큰 버튼을 사용해 메뉴 선택, 장바구니, 결제 단계를 진행하는 카페 키오스크입니다.",
-    aiPoint: "Whisper로 음성을 텍스트로 바꾸고 Qwen3로 주문 의도를 분석했습니다. MeloTTS로 안내 문장을 출력했습니다.",
-    humanPoint: "주문 단계를 구성했습니다. 다시 듣기, 말하기 속도, 직원 호출, 홈 이동 기능을 넣었습니다.",
+    aiPoint: "AI로 한국어 주문 문장 3,000건의 생성·교정·라벨링과 Split 누수 검증 자료 제작을 자동화했습니다. NLU·Order Engine 구현, 테스트 작성, 오류·병합 충돌 해결과 Git·PR 관리에 활용했습니다.",
+    humanPoint: "STT가 전달한 한국어 문장을 해석해 OrderCommand[]로 변환하는 NLU 영역을 맡았습니다. 복수·혼합 주문, 옵션·수량 변경, 오류 처리, 장바구니 반영과 NLU 데이터셋 구축·검수를 담당했습니다.",
     process: ["음성 입력", "STT", "의도 이해", "주문 상태", "TTS 안내"],
-    role: "개인 프로젝트 · 주문 단계, 접근성 기능, 결제 화면 구현",
+    role: "팀 프로젝트 · NLU, OrderCommand 변환, 주문 데이터셋 구축·검수",
     image: "/projects/mallo-home.png",
     imageAlt: "말로 카페 음성 키오스크의 주문 시작 화면",
     url: "https://proj1-d.vercel.app/",
@@ -132,17 +132,17 @@ const archiveProjects = [
 ];
 
 const aiWorkflow = [
-  ["문제 정리", "입력과 실패 조건 확인", "사용자가 입력하는 값과 기능이 실패하는 조건을 먼저 적습니다."],
-  ["기능 분리", "모델·검색·API 나누기", "LLM, 검색, API, 상태 관리를 각각 구현한 뒤 실행 순서를 정합니다."],
-  ["오류 확인", "입력값과 출력 확인", "검색 결과, 모델 출력, 오류 로그를 확인합니다."],
-  ["배포", "화면에서 끝까지 실행", "AI 기능을 화면과 연결하고 실제 사용 순서대로 테스트합니다."],
+  ["요구사항 정의", "입력과 실패 조건 확인", "사용자가 입력하는 값과 기능이 실패하는 조건을 먼저 적습니다."],
+  ["AI 활용", "초안 구현과 문제 해결", "AI로 코드 초안과 수정안을 빠르게 만들고, 기능의 입력·출력 계약은 직접 정합니다."],
+  ["반복 테스트", "기능별·통합 테스트", "정상 입력, 예외 입력, 모델 출력, API 연결을 반복해서 확인합니다."],
+  ["배포 검증", "실사용 순서로 최종 테스트", "배포 환경에서 주요 시나리오를 끝까지 실행해 오류와 응답을 확인합니다."],
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="RSB AI 포트폴리오 홈"><span className="brand-orb"><Sparkles size={16} /></span><span>RSB.AI</span></a>
+        <a className="brand" href="#top" aria-label="RSM AI 포트폴리오 홈"><span className="brand-orb"><Sparkles size={16} /></span><span>RSM.AI</span></a>
         <nav aria-label="주요 메뉴"><a href="#approach">소개</a><a href="#capabilities">기술</a><a href="#projects">프로젝트</a><a href="#about">이력</a></nav>
         <a className="header-cta" href="#contact">연락하기 <ArrowUpRight size={15} /></a>
       </header>
@@ -151,20 +151,20 @@ export default function Home() {
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
           <p className="eyebrow"><span>●</span> AI 엔지니어 포트폴리오 · 2026</p>
-          <h1>고객 지원·문서 검색·<br />음성 주문 서비스를 만들었습니다.<br /><em>AI 엔지니어 류승민</em></h1>
-          <p className="hero-description">LLM, RAG, Whisper를 사용해 CIPHER, MALLO, PDF RAG를 구현하고 배포했습니다.</p>
+          <h1>AI를 이용하는<br /><em>데이터 엔지니어 류승민</em></h1>
+          <p className="hero-description">안녕하세요, 류승민입니다. 데이터 처리부터 AI 기능 구현, API 연동, 배포까지 서비스 전체 과정을 직접 다룹니다. LLM·RAG·음성 AI를 활용하고, 반복 테스트와 오류 분석을 거쳐 실제로 작동하는 서비스를 만듭니다.</p>
           <div className="hero-actions"><a className="button-primary" href="#projects">AI 프로젝트 보기 <ArrowDownRight size={18} /></a><a className="mail-link" href="mailto:rsb3748419@gmail.com">rsb3748419@gmail.com</a></div>
         </div>
-        <aside className="hero-lab" aria-label="AI 기능 구성">
-          <div className="lab-top"><span>AI 기능 구성</span><i>준비</i></div>
+        <aside className="hero-lab" aria-label="Live system map">
+          <div className="lab-top"><span>LIVE SYSTEM MAP</span><i>READY</i></div>
           <div className="lab-map">
-            <div className="node node-input"><small>01</small><strong>입력</strong><span>voice · text · pdf</span></div>
-            <div className="node node-reason"><small>02</small><strong>분석</strong><span>LLM · RAG · agents</span></div>
-            <div className="node node-act"><small>03</small><strong>실행</strong><span>API · state · tools</span></div>
-            <div className="node node-check"><small>04</small><strong>확인</strong><span>result · logs · human</span></div>
+            <div className="node node-input"><small>01</small><strong>INPUT</strong><span>voice · text · pdf</span></div>
+            <div className="node node-reason"><small>02</small><strong>REASON</strong><span>LLM · RAG · agents</span></div>
+            <div className="node node-act"><small>03</small><strong>ACT</strong><span>API · state · tools</span></div>
+            <div className="node node-check"><small>04</small><strong>VERIFY</strong><span>evidence · logs · human</span></div>
             <svg viewBox="0 0 500 310" role="presentation"><path d="M123 72 C205 72 180 128 257 128" /><path d="M343 128 C420 128 377 235 429 235" /><path d="M257 164 C257 236 170 235 117 235" /><path d="M151 235 C243 284 345 274 401 243" /></svg>
           </div>
-          <div className="lab-footer"><span><i /> 사람이 최종 확인</span><code>구현 → 테스트 → 설명</code></div>
+          <div className="lab-footer"><span><i /> HUMAN IN THE LOOP</span><code>build → test → explain</code></div>
         </aside>
         <a className="scroll-note" href="#approach">아래로 보기 <ArrowDownRight size={16} /></a>
       </section>
@@ -185,7 +185,7 @@ export default function Home() {
       </div></section>
 
       <section className="projects section-shell" id="projects">
-        <div className="section-heading"><div><div className="section-label"><span>03</span> 대표 프로젝트</div><h2>직접 만든<br /><em>AI 서비스 3개</em></h2></div><p>각 프로젝트의 문제, 구현 내용, 사용 기술, 데모를 확인할 수 있습니다.</p></div>
+        <div className="section-heading"><div><div className="section-label"><span>03</span> 대표 프로젝트</div><h2><em>대표 AI 서비스 3선</em></h2></div><p>각 프로젝트의 문제, 구현 내용, 사용 기술, 데모를 확인할 수 있습니다.</p></div>
         <div className="project-list">{featuredProjects.map((project) => { const Icon = project.icon; return <article className="project-card" key={project.name}>
           <div className="project-meta"><span>{project.number}</span><Icon size={25} /><p>{project.eyebrow}</p></div>
           <div className="project-body">
@@ -202,9 +202,9 @@ export default function Home() {
       </section>
 
       <section className="workflow-section"><div className="section-shell">
-        <div className="section-heading light"><div><div className="section-label"><span>04</span> 개발 방식</div><h2>AI 기능을 만들고<br /><em>배포하는 방법</em></h2></div><p>요구사항을 나눈 뒤 모델, 검색, API를 구현하고 실행 결과와 오류를 확인합니다.</p></div>
+        <div className="section-heading light"><div><div className="section-label"><span>04</span> 개발 방식</div><h2>AI를 활용하고<br /><em>테스트로 확인합니다.</em></h2></div><p>AI로 구현 속도를 높이되, 기능별·통합·실사용 테스트를 통과한 결과만 적용합니다.</p></div>
         <div className="workflow-grid">{aiWorkflow.map(([label, title, body], index) => <article key={label}><div><span>{String(index + 1).padStart(2, "0")}</span><i /></div><p>{label}</p><h3>{title}</h3><div className="workflow-line" /><small>{body}</small></article>)}</div>
-        <div className="responsible-ai"><ShieldCheck size={28} /><div><span>확인 방식</span><strong>AI가 만든 결과는 직접 실행해 확인합니다.</strong></div><p>공식 문서, 검색 결과, 오류 로그, 사용자 동작을 확인한 뒤 적용합니다.</p></div>
+        <div className="responsible-ai"><ShieldCheck size={28} /><div><span>테스트 원칙</span><strong>AI가 만든 코드와 결과는 테스트를 통과한 뒤 적용합니다.</strong></div><p>정상·예외 입력, API 연동, 오류 로그, 사용자 동작을 직접 반복 확인합니다.</p></div>
       </div></section>
 
       <section className="archive section-shell" id="archive">
@@ -222,7 +222,7 @@ export default function Home() {
       </div></section>
 
       <section className="contact" id="contact"><div className="contact-grid section-shell"><div className="contact-copy"><div className="section-label"><span>07</span> 연락처</div><h2>AI 엔지니어<br /><em>인턴·주니어 포지션을 찾고 있습니다.</em></h2><p>AI 엔지니어 인턴·주니어 포지션과 프로젝트 협업 제안을 기다립니다. 이메일이나 문의 양식으로 연락해 주세요.</p><a href="mailto:rsb3748419@gmail.com"><Mail size={18} /> rsb3748419@gmail.com</a><div className="availability"><Gauge size={18} /><span>인턴 · 주니어 · 프로젝트 협업 가능</span></div></div><ContactForm /></div>
-        <footer className="section-shell"><div className="brand"><span className="brand-orb"><Sparkles size={16} /></span><span>RSB.AI</span></div><p>류승민 AI 엔지니어 포트폴리오</p><a href="#top">맨 위로 <ArrowUpRight size={14} /></a></footer>
+        <footer className="section-shell"><div className="brand"><span className="brand-orb"><Sparkles size={16} /></span><span>RSM.AI</span></div><p>류승민 AI 엔지니어 포트폴리오</p><a href="#top">맨 위로 <ArrowUpRight size={14} /></a></footer>
       </section>
     </main>
   );
