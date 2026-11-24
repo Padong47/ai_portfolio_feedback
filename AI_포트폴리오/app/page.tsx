@@ -88,24 +88,32 @@ const featuredProjects = [
   },
   {
     number: "03",
-    name: "PDF RAG",
-    eyebrow: "GROUNDED DOCUMENT AI",
-    statement: "PDF를 올리고 질문하면\n관련 문서를 찾아 답변합니다.",
-    summary: "PDF를 청크로 나누고 FAISS에서 관련 문맥을 검색한 뒤 질문에 답하는 챗봇입니다.",
-    aiPoint: "FAISS로 질문과 가까운 청크를 찾았습니다. 검색한 문맥은 답변 생성 단계에 전달했습니다.",
-    humanPoint: "PDF 업로드, 청크 분할, 검색, 답변 단계를 나눴습니다. LangGraph로 실행 순서를 구성했습니다.",
-    process: ["PDF 업로드", "청크 분할", "벡터 검색", "문맥 조립", "근거 답변"],
-    role: "개인 프로젝트 · PDF 적재, 청크 분할, 벡터 검색, 답변 생성 구현",
-    image: "/projects/pdf-rag-home.png",
-    imageAlt: "PDF 업로드와 문서 기반 질문 기능을 제공하는 RAG 챗봇 화면",
-    url: "https://app-aazastd83baor2kfopfzou.streamlit.app/",
-    videoUrl: null,
-    tags: ["LangGraph", "RAG", "FastAPI", "Docker", "FAISS", "Streamlit"],
-    icon: FileSearch,
+    name: "CreditPulse",
+    eyebrow: "ENTERPRISE CREDIT RAG",
+    statement: "사업보고서에서 근거를 찾아\n기업여신 심사 초안과 인용을 만듭니다.",
+    summary: "기업·사업연도·체크리스트 항목을 입력하면 공시 문서에서 근거를 찾고, 심사역이 승인한 내용만 심사 메모로 저장하는 서비스입니다.",
+    aiPoint: "LangGraph 멀티에이전트가 질문을 나누고, BM25·pgvector·RRF·리랭킹으로 찾은 근거를 바탕으로 판정 초안과 인용을 생성합니다.",
+    humanPoint: "DART 문서 파싱·청킹과 검색 조합 비교를 맡았습니다. 동결 평가셋을 다시 측정하고 검색 실패 원인을 분석해 RAG 품질을 검증했습니다.",
+    process: ["기업·항목 입력", "공시 문서 검색", "리랭킹", "판정·인용 생성", "심사역 승인"],
+    role: "팀 프로젝트 · 검색·데이터 및 RAG 품질, 동결 평가셋 재측정, 검색 실패 분석",
+    image: "/projects/creditpulse-home.png",
+    imageAlt: "CreditPulse 기업여신 심사 지원 서비스의 메인 화면",
+    url: "https://creditpulse-api-236552047198.asia-northeast3.run.app/",
+    videoUrl: "/creditpulse-demo.mp4",
+    tags: ["Python", "FastAPI", "LangGraph", "RAG", "OpenDART", "BM25", "pgvector", "RRF", "Voyage Rerank", "PostgreSQL", "Supabase", "Docker", "Langfuse", "GCP Cloud Run"],
+    icon: Database,
   },
 ];
 
 const archiveProjects = [
+  {
+    title: "PDF RAG",
+    category: "DOCUMENT QUESTION ANSWERING",
+    description: "PDF를 올리면 문서를 청크로 나누고 FAISS에서 관련 문맥을 검색해 질문에 답합니다.",
+    tags: ["LangGraph", "RAG", "FastAPI", "Docker", "FAISS", "Streamlit"],
+    url: "https://app-aazastd83baor2kfopfzou.streamlit.app/",
+    icon: FileSearch,
+  },
   {
     title: "오류에 강한 데이터 파이프라인",
     category: "RELIABLE PYTHON",
@@ -208,7 +216,7 @@ export default function Home() {
       </div></section>
 
       <section className="archive section-shell" id="archive">
-        <div className="section-heading"><div><div className="section-label"><span>05</span> 추가 작업물</div><h2><em>그 외의 작업물</em></h2></div><p>데이터 처리, 오디오 분류, 이미지 분류 프로젝트 3개입니다.</p></div>
+        <div className="section-heading"><div><div className="section-label"><span>05</span> 추가 작업물</div><h2><em>그 외의 작업물</em></h2></div><p>문서 검색, 데이터 처리, 오디오 분류, 이미지 분류 프로젝트 4개입니다.</p></div>
         <div className="archive-grid">{archiveProjects.map((project, index) => { const Icon = project.icon; const content = <><div className="archive-top"><span>0{index + 1}</span><Icon size={23} /></div><p>{project.category}</p><h3>{project.title}</h3><div className="archive-description">{project.description}</div><div className="archive-tags">{project.tags.map((tag) => <code key={tag}>{tag}</code>)}</div><div className="archive-link">{project.url ? "OPEN PROJECT" : "CASE NOTE"}{project.url ? <ArrowUpRight size={16} /> : <Code2 size={16} />}</div></>; return project.url ? <a href={project.url} target="_blank" rel="noreferrer" key={project.title}>{content}</a> : <article key={project.title}>{content}</article>; })}</div>
       </section>
 
