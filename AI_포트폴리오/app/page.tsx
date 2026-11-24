@@ -115,13 +115,6 @@ const archiveProjects = [
     icon: FileSearch,
   },
   {
-    title: "오류에 강한 데이터 파이프라인",
-    category: "RELIABLE PYTHON",
-    description: "KeyError와 인덱스 오류가 나는 입력을 실행하고, 로깅과 안전한 조회 코드를 적용해 실패 위치를 기록했습니다.",
-    tags: ["Python", "Logging", "Error Handling"],
-    icon: ShieldCheck,
-  },
-  {
     title: "AI 음악 장르 예측기",
     category: "AUDIO CLASSIFICATION",
     description: "WAV 파일을 넣으면 오디오 분류 모델이 음악 장르를 예측하고 장르별 확률을 보여줍니다.",
@@ -216,7 +209,7 @@ export default function Home() {
       </div></section>
 
       <section className="archive section-shell" id="archive">
-        <div className="section-heading"><div><div className="section-label"><span>05</span> 추가 작업물</div><h2><em>그 외의 작업물</em></h2></div><p>문서 검색, 데이터 처리, 오디오 분류, 이미지 분류 프로젝트 4개입니다.</p></div>
+        <div className="section-heading"><div><div className="section-label"><span>05</span> 추가 작업물</div><h2><em>그 외의 작업물</em></h2></div><p>문서 검색, 오디오 분류, 이미지 분류 프로젝트 3개입니다.</p></div>
         <div className="archive-grid">{archiveProjects.map((project, index) => { const Icon = project.icon; const content = <><div className="archive-top"><span>0{index + 1}</span><Icon size={23} /></div><p>{project.category}</p><h3>{project.title}</h3><div className="archive-description">{project.description}</div><div className="archive-tags">{project.tags.map((tag) => <code key={tag}>{tag}</code>)}</div><div className="archive-link">{project.url ? "OPEN PROJECT" : "CASE NOTE"}{project.url ? <ArrowUpRight size={16} /> : <Code2 size={16} />}</div></>; return project.url ? <a href={project.url} target="_blank" rel="noreferrer" key={project.title}>{content}</a> : <article key={project.title}>{content}</article>; })}</div>
       </section>
 
